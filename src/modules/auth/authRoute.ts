@@ -9,7 +9,5 @@ export class AuthRoutes {
 
         app.route('/api/register')
             .post(authController.register)    
-            
-        
     }
 }

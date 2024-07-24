@@ -11,7 +11,6 @@ export const ErrorMessage: any = {
     TASK_NOT_CREATED: 'Task not created',
 
     // * Auth
-
     USER_LOGIN_ERROR : 'Invalid credential',
     USER_EXISTS_ERROR: 'User already exists',
     USER_REGISTER_ERROR: 'User registration error'

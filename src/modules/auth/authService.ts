@@ -13,9 +13,9 @@ export class AuthService extends Query {
     // * Create User
     public login = async (reqData: any) => {
         try {
-            console.log('# AuthService - > addTask start');
-            const { email, password } = reqData;
-            const user = await userModel.findOne({ email }) as IUser;
+            console.log('# AuthService - > login start');
+            const { username, password } = reqData;
+            const user = await userModel.findOne({ username }) as IUser;
             if (!user) {
                 return '';
             }
@@ -33,20 +33,20 @@ export class AuthService extends Query {
     };
     public register = async (reqData: any) => {
         try {
-            console.log('# AuthService - > addTask start');
-            const { username, email, password } = reqData;
-            const existingUser = await userModel.findOne({ email });
+            console.log('# AuthService - > register start');
+            const { username, password } = reqData;
+            const existingUser = await userModel.findOne({ username });
             if (existingUser) {
                 return 'existingUser';
             }
             const hashedPassword = await bcrypt.hash(password, 12);
-            const newUser = new userModel({ username, email, password: hashedPassword });
+            const newUser = new userModel({ username, password: hashedPassword });
             const userData = await query.save(userModel, newUser);
-            console.log('# AuthService - > addTask -> query.save result: ', userData);
+            console.log('# AuthService - > register -> query.save result: ', userData);
 
             return userData;
         } catch (error) {
-            console.log('# AuthService -> addTask -> catch: ', error);
+            console.log('# AuthService -> register -> catch: ', error);
             return error;
         }
     };
