@@ -34,6 +34,9 @@ const taskSchema = new Schema({
   dueDate: {
     type: String,
   },
+  userId:{
+    type:String
+  },
   isDeleted: {
     type: Boolean,
     default: false,

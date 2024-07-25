@@ -77,6 +77,7 @@ export class TaskService extends Query {
 
       const filter = {
         isDeleted: false,
+        userId:reqData.query.userId
       }
 
     //   let options: any = {
