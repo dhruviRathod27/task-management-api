@@ -71,20 +71,11 @@ export class TaskService extends Query {
   public getTaskTable = async (reqData: any) => {
     try {
       console.log('# TaskService - > getTaskTable : start');
-
-    //   const limit = _.toNumber(reqData.query.perPage) || 10;
-    //   const skip = _.toNumber(reqData.query.page) * _.toNumber(reqData.query.perPage)
-
+      
       const filter = {
         isDeleted: false,
         userId:reqData.query.userId
       }
-
-    //   let options: any = {
-    //     lean: true,
-    //     limit: limit,
-    //     skip: skip,
-    //   }
       const totalCount = await query.count(taskModel,filter);
       let taskTable:any = await query.findWithPaginationAndPopulation(taskModel,filter,'',{},{},'',{});
 

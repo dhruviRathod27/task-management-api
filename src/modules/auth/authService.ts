@@ -10,7 +10,7 @@ const query: Query = new Query();
 
 export class AuthService extends Query {
 
-    // * Create User
+    // * Login User
     public login = async (reqData: any) => {
         try {
             console.log('# AuthService - > login start');
@@ -31,6 +31,7 @@ export class AuthService extends Query {
             return error;
         }
     };
+    // * Register User
     public register = async (reqData: any) => {
         try {
             console.log('# AuthService - > register start');
